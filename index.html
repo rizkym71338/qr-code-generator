@@ -14,7 +14,9 @@
   <div class="max-w-md mx-auto px-4 h-screen flex items-center justify-center">
     <div class="rounded-xl p-4 bg-gray-50/10 backdrop-blur-md w-full border border-gray-50/20 space-y-6">
       <span class="text-xl font-bold text-gray-100 text-center block">QR CODE GENERATOR</span>
-      <canvas class="w-[200px] h-[200px] mx-auto bg-gray-50/20 block rounded-md" id="qr-panel"></canvas>
+      <span class="text-xs text-gray-100">* Click QR Code to download *</span>
+      <canvas class="w-[200px] h-[200px] mx-auto bg-gray-50/20 block rounded-md" id="qr-panel"
+        onclick="Download()"></canvas>
       <div class="flex items-center space-x-4 rounded-full border border-gray-100/20 bg-gray-50/10">
         <input type="text" placeholder="Generate QR Code" id="qr-input"
           class="w-full text-sm outline-none bg-transparent text-gray-100 placeholder:text-gray-100 py-2.5 pl-5" />
@@ -32,6 +34,13 @@
   <script>
     var canvas = document.getElementById('qr-panel')
     var QRInput = document.getElementById('qr-input')
+    var anchor = document.createElement("a");
+
+    const Download = () => {
+      anchor.href = canvas.toDataURL("image/png");
+      anchor.download = "IMAGE.PNG"
+      anchor.click();
+    }
 
     QRInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
