@@ -14,7 +14,7 @@
   <div class="max-w-md mx-auto px-4 h-screen flex items-center justify-center">
     <div class="rounded-xl p-4 bg-gray-50/10 backdrop-blur-md w-full border border-gray-50/20 space-y-6">
       <span class="text-xl font-bold text-gray-100 text-center block">QR CODE GENERATOR</span>
-      <canvas class="w-80 h-80 mx-auto bg-gray-50/20 block rounded-md" id="qr-panel"></canvas>
+      <canvas class="w-[200px] h-[200px] mx-auto bg-gray-50/20 block rounded-md" id="qr-panel"></canvas>
       <div class="flex items-center space-x-4 rounded-full border border-gray-100/20 bg-gray-50/10">
         <input type="text" placeholder="Generate QR Code" id="qr-input"
           class="w-full text-sm outline-none bg-transparent text-gray-100 placeholder:text-gray-100 py-2.5 pl-5" />
@@ -42,7 +42,7 @@
 
     const Generate = () => {
       QRCode.toCanvas(canvas, QRInput.value, {
-        width: 320,
+        width: 200,
         margin: 2
       }, (err) => {
         if (err) console.error(err)
